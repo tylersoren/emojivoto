@@ -2,3 +2,5 @@
 **/target
 **/gen
 vendor
+
+.DS_Store
