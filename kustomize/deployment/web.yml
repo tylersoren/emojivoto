@@ -48,7 +48,7 @@ kind: Service
 metadata:
   name: web-svc
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: web-svc
   ports:
@@ -56,19 +56,19 @@ spec:
     port: 80
     targetPort: 8080
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: basic-ingress
-# spec:
-#   rules:
-#   - host: emojivoto.com
-#     http:
-#       paths:
-#       - backend:
-#           service:
-#             name: web-svc
-#             port:
-#               number: 80
-#         path: /
-#         pathType: Prefix
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-ingress
+spec:
+  rules:
+  - host: emojivoto.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: web-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
