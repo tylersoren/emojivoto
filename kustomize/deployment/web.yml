@@ -48,7 +48,7 @@ kind: Service
 metadata:
   name: web-svc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: web-svc
   ports:
